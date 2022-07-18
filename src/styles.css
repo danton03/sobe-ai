@@ -1,0 +1,123 @@
+body {
+  background-color: #3e3e3e;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: sans-serif;
+  width: 100%;
+  text-align: center;
+  background-color: #3e3e3e;
+  height: 98vh;
+}
+
+h1 {
+  font-family: "Michland", sans-serif;
+  font-size: 60px;
+  color: #f7ac3c;
+}
+
+.viewer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
+  max-width: 800px;
+  height: 200px;
+  padding: 0 12px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+.card-image{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  row-gap: 10px;
+  width: 100%;
+  height: auto;
+  min-height: 80px;
+  padding: 0 12px;
+  background-color: rgb(250, 231, 207);
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+.img-description{
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+img{
+  width: auto;
+  min-width: 120px;
+  max-width: 160px;
+  height: auto;
+  min-height: 60px;
+  object-fit: cover;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 800px;
+}
+
+.botoes{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-top: 20px;
+  gap: 20px;
+}
+
+label, button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 190px;
+  height: 48px;
+  background-color: #f7ac3c;
+  border-radius: 12px;
+  margin: 14px 0;
+
+  color: #ffffff;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+}
+
+button{
+  font-size: 18px;
+  width: 100px;
+  border: none;
+}
+
+label:hover {
+  cursor: pointer;
+}
+
+input {
+  opacity: 0;
+}
+
+.no-image {
+  font-family: "Roboto", sans-serif;
+  font-size: 20px;
+  color: #c6c6c6;
+}
+
+@media(max-width: 400px){
+  .viewer{
+    width: 90%;
+  }
+}
