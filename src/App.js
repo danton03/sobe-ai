@@ -1,10 +1,12 @@
+import axios from "axios";
 import { useState } from "react";
-import "./styles.css";
+import "./styles/reset.css";
+import "./styles/styles.css";
 
 export default function App() {
   const [image, setImage] = useState();
 
-  function teste(event) {
+  function handleUploadImage(event) {
     setImage(event.target.files[0]);
   }
 
@@ -32,7 +34,23 @@ export default function App() {
   
   function handleSubmit(event) {
     event.preventDefault();
-    console.log("Enviou!");
+    const config = {
+      "headers" : {
+        "Content-Type": "application/json"
+      }
+    }
+    const formData = new FormData();
+    formData.append('image', image);
+
+    const promise = axios.post("http://localhost:5000/upload-image", formData, config);
+
+    promise.then((resposta) => {
+      console.log(resposta);
+      console.log("Enviado com sucesso!");
+    });
+    promise.catch((error)=>{
+      console.log(error);
+    });
   }
 
   return (
@@ -45,7 +63,7 @@ export default function App() {
           <p className="no-image">{"Nenhuma imagem inserida ainda :("}</p>         
         }
       </div>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} encType="multipart/form-data" method="post">
         <div className="botoes">
           <label htmlFor="upload_image">Selecione a imagem</label>
           {image? <button type="submit">Enviar</button> : ''}
@@ -54,8 +72,8 @@ export default function App() {
           type="file"
           id="upload_image"
           name="upload_image"
-          accept="image/png, image/jpeg, image/svg"
-          onChange={(event) => teste(event)}
+          accept="image/png, image/jpeg, image/jpg"
+          onChange={(event) => handleUploadImage(event)}
         />
       </form>
     </div>
